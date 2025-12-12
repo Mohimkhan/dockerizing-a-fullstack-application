@@ -5,7 +5,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("http://localhost:3000/users");
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/users`);
       const data = await response.json();
 
       setUsers(data?.data);
@@ -62,7 +62,7 @@ const Home = () => {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                const response = await fetch("http://localhost:3000/users", {
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",
