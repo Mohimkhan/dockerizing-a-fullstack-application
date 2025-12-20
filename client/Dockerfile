@@ -11,5 +11,5 @@ CMD ["npm", "run", "dev"]
 FROM base AS build
 COPY . .
 EXPOSE 4173
-CMD ["npm", "run", "build", "npm", "run", "preview"]
+CMD ["sh", "-c", "npm run build && npm run preview"]
 
