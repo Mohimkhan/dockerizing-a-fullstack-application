@@ -10,6 +10,15 @@ This project demonstrates how to dockerize a dummy full-stack application using 
 2.  **Server**: A Node.js Express REST API.
 3.  **Database**: A MongoDB instance.
 
+### 🐳 Multi-Stage Dockerization
+
+This project utilizes **multi-stage Docker builds** to optimize images for different environments. This allows flexibility in building the application for either **development** (with hot-reloading) or **production** (optimized static assets).
+
+By default, the `docker-compose.yml` is configured for the **production** build. If you wish to build for development or production, you simply need to change the `target` value in the `docker-compose.yml` file:
+
+- **Production**: Set `target: build` (serves optimized build on port `4173`).
+- **Development**: Set `target: dev` (runs dev server with hot-reloading on port `5173`).
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: React, Vite, React Toastify
