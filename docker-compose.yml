@@ -30,6 +30,5 @@ services:
   mongo-container:
     image: mongo:latest
     container_name: mongo-container
+    # No ports section needed here as both server and mongo-container are running on the same network (bridge By default created by dockercompose)!
     restart: unless-stopped
-    ports:
-      - "27017:27017"
