@@ -62,16 +62,19 @@ const Home = () => {
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
-                const response = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    name: e.target.name.value,
-                    email: e.target.email.value,
-                  }),
-                });
+                const response = await fetch(
+                  `${import.meta.env.VITE_API_URL}/users`,
+                  {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      name: e.target.name.value,
+                      email: e.target.email.value,
+                    }),
+                  }
+                );
                 const data = await response.json();
 
                 setUsers((prevUsers) => [...prevUsers, data?.data]);
